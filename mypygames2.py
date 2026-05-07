@@ -121,6 +121,15 @@ def main():
             boxes.append(Box(start_pos_x + i*185, 360, pilihan[i]))
 
         # --- TAHAP 1: Hafalkan (Hanya Angka, Tanpa Soal) ---
+        pilihan = buat_pilihan(jawaban)
+        random.shuffle(pilihan)  # <--- TAMBAHKAN BARIS INI UNTUK MENGACAK POSISI
+
+        boxes = []
+        start_pos_x = 100
+        for i in range(4):
+            # Sekarang pilihan[i] sudah teracak posisinya
+            boxes.append(Box(start_pos_x + i*185, 360, pilihan[i]))
+        
         for box in boxes: box.revealed = True
         
         start_memori = pygame.time.get_ticks()
